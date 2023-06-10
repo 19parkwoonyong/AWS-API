@@ -6,12 +6,12 @@ from PIL import Image, ImageDraw
 def detect_labels(photo, bucket):
 
     # 내 aws 정보 연동
-    client = boto3.client('rekognition', aws_access_key_id="AKIA4IOSEZCHYFF5G4VE", 
-        aws_secret_access_key="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", 
+    client = boto3.client('rekognition', aws_access_key_id="my access key", 
+        aws_secret_access_key="secret", 
         region_name="ap-northeast-2")
 
     # s3에서 이미지 갖고오기
-    s3_connection = boto3.resource('s3', aws_access_key_id='AKIA4IOSEZCHYFF5G4VE', aws_secret_access_key='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', region_name='ap-northeast-2')
+    s3_connection = boto3.resource('s3', aws_access_key_id='my access key', aws_secret_access_key='secret', region_name='ap-northeast-2')
     s3_object = s3_connection.Object(bucket, photo)
     s3_response = s3_object.get()
 
